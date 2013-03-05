@@ -6,6 +6,7 @@
   "keywords": [],
   "author": "Lance Pollard <lancejpollard@gmail.com>",
   "dependencies": {
+    "minstache": "*"
   },
   "scripts": ["index.js"],
   "styles": [],

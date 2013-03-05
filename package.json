@@ -9,5 +9,8 @@
   },
   "scripts": {
     "test": "mocha"
+  },
+  "dependencies": {
+    "minstache": "~1.0.0"
   }
 }
