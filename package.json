@@ -1,0 +1,13 @@
+{
+  "name": "tower-inflector",
+  "version": "0.0.1",
+  "main": "./index.js",
+  "author": "Lance Pollard <lancejpollard@gmail.com>",
+  "devDependencies": {
+    "chai": "~1.4.2",
+    "mocha": "~1.8.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}

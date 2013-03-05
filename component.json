@@ -1,0 +1,13 @@
+{
+  "name": "tower-inflector",
+  "repo": "component/tower-inflector",
+  "description": "Tower Inflector component",
+  "version": "0.0.1",
+  "keywords": [],
+  "author": "Lance Pollard <lancejpollard@gmail.com>",
+  "dependencies": {
+  },
+  "scripts": ["index.js"],
+  "styles": [],
+  "license": "MIT"
+}
