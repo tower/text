@@ -3,9 +3,17 @@
   "repo": "tower/inflector",
   "description": "Tower Inflector component",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": [
+    "internationalization",
+    "i18n",
+    "globalization",
+    "locale",
+    "translation",
+    "linguistics"
+  ],
   "dependencies": {
-    "minstache": "*"
+    "minstache": "*",
+    "tower-container": "*"
   },
   "scripts": ["index.js"],
   "main": "index.js",

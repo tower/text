@@ -1,7 +1,14 @@
 {
   "name": "tower-inflector",
   "version": "0.0.1",
-  "main": "./index.js",
+  "keywords": [
+    "internationalization",
+    "i18n",
+    "globalization",
+    "locale",
+    "translation",
+    "linguistics"
+  ],
   "devDependencies": {
     "chai": "~1.4.2",
     "mocha": "~1.8.1"
@@ -11,5 +18,6 @@
   },
   "dependencies": {
     "minstache": "~1.0.0"
-  }
+  },
+  "main": "./index.js"
 }

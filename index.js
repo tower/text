@@ -3,7 +3,8 @@
  * Module dependencies.
  */
 
-var mm = require('minstache');
+var container = require('tower-container')
+  , mm = require('minstache');
 
 /**
  * Expose `text`.
@@ -11,30 +12,56 @@ var mm = require('minstache');
 
 module.exports = text;
 
-function text(name) {
-  return text[name] || (text[name] = new Text(name))
+/**
+ * Instantiate a new `Text`.
+ *
+ * Example:
+ *
+ *    text('messages')
+ *
+ * @param {String} key
+ * @api public
+ */
+
+function text(key) {
+  // XXX: handle multiple languages
+  return container.lookup('text:en:' + key, 'text:*');
 }
 
-text.Text = Text;
+container.factory('text:*', Text);
 
 /**
  * Text (for I18n).
  *
- * text('messages')
+ * @api private
  */
 
-function Text(name) {
-  this.name = name
+function Text() {
   this.inflections = [];
 }
+
+/**
+ * @param {String} string
+ * @api public
+ */
 
 Text.prototype.past = function(string) {
   return this.inflection(string, context.inflection.count, 'past');
 };
 
+/**
+ * @param {String} string
+ * @api public
+ */
+
 Text.prototype.present = function(string) {
   return this.inflection(string, context.inflection.count, 'present');
 };
+
+/**
+ * @param {String} string
+ * @api public
+ */
 
 Text.prototype.future = function(string) {
   return this.inflection(string, context.inflection.count, 'future');
@@ -45,17 +72,39 @@ Text.prototype.tense = function(string, tense, count) {
   return this.inflection(string, count, tense);
 }
 
+/**
+ * @param {String} string
+ * @api public
+ */
+
 Text.prototype.none = function(string) {
   return this.inflection(string, 'none');
 };
+
+/**
+ * @param {String} string
+ * @api public
+ */
 
 Text.prototype.one = function(string) {
   return this.inflection(string, 'one');
 };
 
+/**
+ * @param {String} string
+ * @api public
+ */
+
 Text.prototype.other = function(string) {
   return this.inflection(string, 'other');
 };
+
+/**
+ * @param {String} string
+ * @param {String} count
+ * @param {String} tense
+ * @api public
+ */
 
 Text.prototype.inflection = function(string, count, tense) {
   // this isn't quite correct...
@@ -70,6 +119,9 @@ Text.prototype.inflection = function(string, count, tense) {
 
 /**
  * This could be a view on the client.
+ *
+ * @param {Object} options
+ * @api public
  */
 
 Text.prototype.render = function(options) {
