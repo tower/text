@@ -13,24 +13,6 @@ var container = require('tower-container')
 module.exports = text;
 
 /**
- * Instantiate a new `Text`.
- *
- * Example:
- *
- *    text('messages')
- *
- * @param {String} key
- * @api public
- */
-
-function text(key) {
-  // XXX: handle multiple languages
-  return container.lookup('text:en:' + key, 'text:*');
-}
-
-container.factory('text:*', Text);
-
-/**
  * Text (for I18n).
  *
  * @api private
@@ -45,7 +27,7 @@ function Text() {
  * @api public
  */
 
-Text.prototype.past = function(string) {
+Text.prototype.past = function(string){
   return this.inflection(string, context.inflection.count, 'past');
 };
 
@@ -54,7 +36,7 @@ Text.prototype.past = function(string) {
  * @api public
  */
 
-Text.prototype.present = function(string) {
+Text.prototype.present = function(string){
   return this.inflection(string, context.inflection.count, 'present');
 };
 
@@ -63,12 +45,12 @@ Text.prototype.present = function(string) {
  * @api public
  */
 
-Text.prototype.future = function(string) {
+Text.prototype.future = function(string){
   return this.inflection(string, context.inflection.count, 'future');
 };
 
 // may reverse the tense/count args.
-Text.prototype.tense = function(string, tense, count) {
+Text.prototype.tense = function(string, tense, count){
   return this.inflection(string, count, tense);
 }
 
@@ -77,7 +59,7 @@ Text.prototype.tense = function(string, tense, count) {
  * @api public
  */
 
-Text.prototype.none = function(string) {
+Text.prototype.none = function(string){
   return this.inflection(string, 'none');
 };
 
@@ -86,7 +68,7 @@ Text.prototype.none = function(string) {
  * @api public
  */
 
-Text.prototype.one = function(string) {
+Text.prototype.one = function(string){
   return this.inflection(string, 'one');
 };
 
@@ -95,7 +77,7 @@ Text.prototype.one = function(string) {
  * @api public
  */
 
-Text.prototype.other = function(string) {
+Text.prototype.other = function(string){
   return this.inflection(string, 'other');
 };
 
@@ -106,7 +88,7 @@ Text.prototype.other = function(string) {
  * @api public
  */
 
-Text.prototype.inflection = function(string, count, tense) {
+Text.prototype.inflection = function(string, count, tense){
   // this isn't quite correct...
   this.inflections.push(context.inflection = {
       string: string
@@ -124,7 +106,7 @@ Text.prototype.inflection = function(string, count, tense) {
  * @api public
  */
 
-Text.prototype.render = function(options) {
+Text.prototype.render = function(options){
   options || (options = {});
 
   var count = (options.count ? (options.count == 1 ? 'one' : 'other') : 'none')
@@ -148,3 +130,25 @@ Text.prototype.render = function(options) {
 
   return mm(inflection.string, options);
 }
+
+/**
+ * Instantiate a new `Text`.
+ *
+ * Example:
+ *
+ *    text('messages')
+ *
+ * @param {String} key
+ * @api public
+ */
+
+function text(key){
+  // XXX: handle multiple languages
+  return container.lookup('text:en:' + key, 'text:*');
+}
+
+/**
+ * Register `Text` factory.
+ */
+
+container.factory('text:*', Text);
