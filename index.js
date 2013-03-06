@@ -132,12 +132,10 @@ Text.prototype.render = function(options) {
     , key = tense + '.' + count
     , inflections = this.inflections
     , inflection = inflections[0]
-    , i = 0
-    , n = inflections.length
     , currScore = 0
     , prevScore = 0;
 
-  for (i; i < n; i++) {
+  for (var i = 0, n = inflections.length; i < n; i++) {
     currScore = 0
       + (count == inflections[i].count ? 1 : 0)
       + (tense == inflections[i].tense ? 1 : 0);
