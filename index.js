@@ -3,7 +3,7 @@
  * Module dependencies.
  */
 
-var container = require('tower-container');
+var context;
 
 /**
  * Expose `text`.
@@ -12,7 +12,41 @@ var container = require('tower-container');
 module.exports = text;
 
 /**
- * Text (for I18n).
+ * Example:
+ *
+ *    text('messages')
+ *
+ * @param {String} key
+ * @api public
+ */
+
+function text(key){
+  return locale[key] || (locale[key] = new Text);
+}
+
+/**
+ * Current language.
+ */
+
+var locale;
+
+/**
+ * Set locale.
+ */
+
+text.locale = function(val){
+  locale = text[val] = text[val] || {};
+  return text;
+}
+
+/**
+ * Default locale is `en`.
+ */
+
+text.locale('en');
+
+/**
+ * Instantiate a new `Text`.
  *
  * @api private
  */
@@ -27,7 +61,7 @@ function Text() {
  */
 
 Text.prototype.past = function(string){
-  return this.inflection(string, context.inflection.count, 'past');
+  return this.inflection(string, context.count, 'past');
 };
 
 /**
@@ -36,7 +70,7 @@ Text.prototype.past = function(string){
  */
 
 Text.prototype.present = function(string){
-  return this.inflection(string, context.inflection.count, 'present');
+  return this.inflection(string, context.count, 'present');
 };
 
 /**
@@ -45,10 +79,16 @@ Text.prototype.present = function(string){
  */
 
 Text.prototype.future = function(string){
-  return this.inflection(string, context.inflection.count, 'future');
+  return this.inflection(string, context.count, 'future');
 };
 
-// may reverse the tense/count args.
+/**
+ * @param {String} string
+ * @param {String} tense
+ * @param {String} count
+ * @api public
+ */
+
 Text.prototype.tense = function(string, tense, count){
   return this.inflection(string, count, tense);
 }
@@ -89,7 +129,7 @@ Text.prototype.other = function(string){
 
 Text.prototype.inflection = function(string, count, tense){
   // this isn't quite correct...
-  this.inflections.push(context.inflection = {
+  this.inflections.push(context = {
       string: string
     , count: count == null ? 'all' : count
     , tense: tense || 'present'
@@ -131,25 +171,3 @@ Text.prototype.render = function(options){
     return options[$1];
   });
 }
-
-/**
- * Instantiate a new `Text`.
- *
- * Example:
- *
- *    text('messages')
- *
- * @param {String} key
- * @api public
- */
-
-function text(key){
-  // XXX: handle multiple languages
-  return container.lookup('text:en:' + key, 'text:*');
-}
-
-/**
- * Register `Text` factory.
- */
-
-container.factory('text:*', Text);
