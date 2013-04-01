@@ -1,5 +1,7 @@
 # Inflector
 
+**0.4kb** minified and gzipped. Ultra tiny I18n.
+
 ## Example
 
 ``` js
