@@ -3,8 +3,7 @@
  * Module dependencies.
  */
 
-var container = require('tower-container')
-  , mm = require('minstache');
+var container = require('tower-container');
 
 /**
  * Expose `text`.
@@ -128,7 +127,9 @@ Text.prototype.render = function(options){
     }
   }
 
-  return mm(inflection.string, options);
+  return inflection.string.replace(/\{\{(\w+)\}\}/g, function(_, $1){
+    return options[$1];
+  });
 }
 
 /**

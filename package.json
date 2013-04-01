@@ -9,15 +9,5 @@
     "translation",
     "linguistics"
   ],
-  "devDependencies": {
-    "chai": "~1.4.2",
-    "mocha": "~1.8.1"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "dependencies": {
-    "minstache": "~1.0.0"
-  },
   "main": "./index.js"
 }

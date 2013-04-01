@@ -11,10 +11,6 @@
     "translation",
     "linguistics"
   ],
-  "dependencies": {
-    "minstache": "*",
-    "tower-container": "*"
-  },
   "scripts": ["index.js"],
   "main": "index.js",
   "license": "MIT"

@@ -26,7 +26,7 @@ describe('serverTest', function(){
     assert.equal('You never had any messages', text('messages').render({tense: 'past', count: 0}));
     assert.equal('You might never get a message', text('messages').render({tense: 'future', count: 0}));
 
-    // 0
+    // n
     assert.equal('You have 3 messages', text('messages').render({count: 3}));
     assert.equal('You had 3 messages', text('messages').render({tense: 'past', count: 3}));
     assert.equal('You might get 3 messages', text('messages').render({tense: 'future', count: 3}));
