@@ -11,7 +11,12 @@
     "translation",
     "linguistics"
   ],
-  "scripts": ["index.js"],
+  "scripts": [
+    "index.js"
+  ],
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "component/assert": "*"
+  }
 }
