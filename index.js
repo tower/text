@@ -20,8 +20,10 @@ module.exports = text;
  * @api public
  */
 
-function text(key){
-  return locale[key] || (locale[key] = new Text);
+function text(key, val){
+  return 1 === arguments.length
+    ? (locale[key] || (locale[key] = new Text))
+    : (locale[key] = new Text).one(val);
 }
 
 text.has = function(key){
