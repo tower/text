@@ -24,6 +24,10 @@ function text(key){
   return locale[key] || (locale[key] = new Text);
 }
 
+text.has = function(key){
+  return !!locale[key];
+}
+
 /**
  * Current language.
  */
@@ -148,7 +152,7 @@ Text.prototype.inflection = function(string, count, tense){
 Text.prototype.render = function(options){
   options || (options = {});
 
-  var count = (options.count ? (options.count == 1 ? 'one' : 'other') : 'none')
+  var count = (options.count ? (1 === options.count ? 'one' : 'other') : 'none')
     , tense = options.tense || 'present'
     , key = tense + '.' + count
     , inflections = this.inflections
