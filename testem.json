@@ -1,0 +1,18 @@
+{
+  "before_tests": [
+    "component build -d"
+  ],
+  "src_files": [
+    "**/*",
+    "build/build.js",
+    "test/*.js"
+  ],
+  "test_page": "test/index.html",
+  "launchers": {
+    "Node": {
+      "command": "mocha test/*.js -R tap",
+      "protocol": "tap"
+    }
+  },
+  "launch_in_dev": ["Node"]
+}
