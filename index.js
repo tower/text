@@ -31,9 +31,10 @@ exports.has = function(key){
 }
 
 exports.ns = function(ns){
-  return function text(key, val) {
+  var fn = function text(key, val) {
     return exports(ns + '.' + key, val);
   }
+  fn.text = fn;
 }
 
 /**
