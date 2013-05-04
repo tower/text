@@ -9,7 +9,7 @@ var context;
  * Expose `text`.
  */
 
-module.exports = text;
+exports = module.exports = text;
 
 /**
  * Example:
@@ -21,13 +21,19 @@ module.exports = text;
  */
 
 function text(key, val){
-  return 1 === arguments.length
+  return undefined === val
     ? (locale[key] || (locale[key] = new Text))
     : (locale[key] = new Text).one(val);
 }
 
-text.has = function(key){
+exports.has = function(key){
   return !!locale[key];
+}
+
+exports.ns = function(ns){
+  return function text(key, val) {
+    return exports(ns + '.' + key, val);
+  }
 }
 
 /**
@@ -40,16 +46,16 @@ var locale;
  * Set locale.
  */
 
-text.locale = function(val){
-  locale = text[val] = text[val] || {};
-  return text;
+exports.locale = function(val){
+  locale = exports[val] = exports[val] || {};
+  return exports;
 }
 
 /**
  * Default locale is `en`.
  */
 
-text.locale('en');
+exports.locale('en');
 
 /**
  * Instantiate a new `Text`.
