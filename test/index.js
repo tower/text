@@ -1,6 +1,6 @@
 var text = 'undefined' == typeof window
     ? require('..')
-    : require('inflector')
+    : require('tower-inflector')
   , assert = require('assert');
 
 describe('serverTest', function(){

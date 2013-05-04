@@ -3,4 +3,5 @@ tmp
 node_modules
 *.log
 components
+build
 .idea
