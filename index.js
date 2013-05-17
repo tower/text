@@ -28,14 +28,14 @@ function text(key, val){
 
 exports.has = function(key){
   return !!locale[key];
-}
+};
 
 exports.ns = function(ns){
   var fn = function text(key, val) {
     return exports(ns + '.' + key, val);
   }
   fn.text = fn;
-}
+};
 
 /**
  * Current language.
@@ -50,7 +50,7 @@ var locale;
 exports.locale = function(val){
   locale = exports[val] = exports[val] || {};
   return exports;
-}
+};
 
 /**
  * Default locale is `en`.
@@ -104,7 +104,7 @@ Text.prototype.future = function(string){
 
 Text.prototype.tense = function(string, tense, count){
   return this.inflection(string, count, tense);
-}
+};
 
 /**
  * @param {String} string
@@ -183,4 +183,4 @@ Text.prototype.render = function(options){
   return inflection.string.replace(/\{\{(\w+)\}\}/g, function(_, $1){
     return options[$1];
   });
-}
+};
