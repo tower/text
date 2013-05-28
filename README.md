@@ -1,11 +1,16 @@
-# Inflector
+# Tower Text
 
-**0.4kb** minified and gzipped. Ultra tiny I18n.
+Super simple way to organize those random bits of text in your app.
+
+- inflection
+- I18n (internationalization)
+- pluralization
+- past/present/future tense
 
 ## Example
 
 ```js
-var text = require('tower-inflector');
+var text = require('tower-text');
 
 text('messages')
   .one('You have 1 message')

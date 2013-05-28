@@ -1,7 +1,7 @@
 {
-  "name": "tower-inflector",
-  "repo": "tower/inflector",
-  "description": "Tower Inflector component",
+  "name": "tower-text",
+  "repo": "tower/text",
+  "description": "Tower Text component",
   "version": "0.0.1",
   "keywords": [
     "internationalization",
@@ -11,10 +11,6 @@
     "translation",
     "linguistics"
   ],
-  "local": [],
-  "paths": [
-    "../"
-  ],
   "development": {
     "timoxley/assert": "*",
     "visionmedia/mocha": "*"
@@ -23,8 +19,5 @@
     "index.js"
   ],
   "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "component/assert": "*"
-  }
+  "license": "MIT"
 }
