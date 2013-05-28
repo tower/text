@@ -26,7 +26,7 @@ exports = module.exports = text;
  * @api public
  */
 
-function text(key, val){
+function text(key, val) {
   return undefined === val
     ? (locale[key] || (locale[key] = new Text))
     : (locale[key] = new Text).one(val);
@@ -34,13 +34,6 @@ function text(key, val){
 
 exports.has = function(key){
   return !!locale[key];
-};
-
-exports.ns = function(ns){
-  var fn = function text(key, val) {
-    return exports(ns + '.' + key, val);
-  }
-  fn.text = fn;
 };
 
 /**
@@ -171,8 +164,8 @@ Text.prototype.render = function(options){
 
   for (var i = 0, n = inflections.length; i < n; i++) {
     currScore = 0
-      + (count == inflections[i].count ? 1 : 0)
-      + (tense == inflections[i].tense ? 1 : 0);
+      + (count === inflections[i].count ? 1 : 0)
+      + (tense === inflections[i].tense ? 1 : 0);
 
     if (currScore > prevScore) {
       inflection = inflections[i];
