@@ -1,9 +1,15 @@
 
 /**
- * Module dependencies.
+ * DSL context.
  */
 
 var context;
+
+/**
+ * Current language.
+ */
+
+var locale;
 
 /**
  * Expose `text`.
@@ -38,17 +44,11 @@ exports.ns = function(ns){
 };
 
 /**
- * Current language.
- */
-
-var locale;
-
-/**
  * Set locale.
  */
 
 exports.locale = function(val){
-  locale = exports[val] = exports[val] || {};
+  locale = exports[val] || (exports[val] = {});
   return exports;
 };
 
@@ -143,9 +143,9 @@ Text.prototype.other = function(string){
 Text.prototype.inflection = function(string, count, tense){
   // this isn't quite correct...
   this.inflections.push(context = {
-      string: string
-    , count: count == null ? 'all' : count
-    , tense: tense || 'present'
+    string: string,
+    count: count == null ? 'all' : count,
+    tense: tense || 'present'
   });
 
   return this;
