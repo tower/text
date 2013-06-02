@@ -1,11 +1,20 @@
 # Tower Text
 
-Super simple way to organize those random bits of text in your app.
+I18n, inflections, and other random bits of text to keep organized.
 
-- inflection
-- I18n (internationalization)
-- pluralization
-- past/present/future tense
+## Installation
+
+node.js:
+
+```bash
+$ npm install tower-text
+```
+
+browser:
+
+```bash
+$ component install tower/text
+```
 
 ## Example
 
