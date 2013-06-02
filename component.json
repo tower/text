@@ -2,7 +2,7 @@
   "name": "tower-text",
   "repo": "tower/text",
   "description": "Tower Text component",
-  "version": "0.0.1",
+  "version": "0.5.0pre",
   "keywords": [
     "internationalization",
     "i18n",
