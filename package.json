@@ -1,6 +1,6 @@
 {
   "name": "tower-text",
-  "version": "0.1.0pre",
+  "version": "0.1.0",
   "keywords": [
     "internationalization",
     "i18n",
@@ -9,5 +9,9 @@
     "translation",
     "linguistics"
   ],
-  "main": "./index.js"
+  "main": "./index.js",
+  "repository": {
+    "type" : "git",
+    "url" : "http://github.com/tower/text.git"
+  }
 }
