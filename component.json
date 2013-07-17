@@ -19,5 +19,9 @@
     "index.js"
   ],
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependents": {
+    "tower/attr": "0.1.0",
+    "tower/resource": "0.1.0"
+  }
 }
